@@ -11,10 +11,74 @@
    <script src="https://raw.githubusercontent.com/processing-js/processing-js/v1.4.8/processing.min.js"></script>
    <sript>
     size(400,400);
+
+
+var GREEN = color(0, 250, 0); 
+var RED = color(255, 0, 0);
+
+var buttonRound = 1;
+
+var drawButtons = function() {
+    if(buttonRound === 1 || buttonRound === 3 ){
+        noStroke();
+        fill(255, 0, 0);
+        ellipse(100, 200, 130,130);
+        fill(0, 250, 0);
+        ellipse(250,200,130,130);
+    }
     
-   var draw=function(){
-      background(255,0,0);
-    };
+    if(buttonRound === 2 || buttonRound === 4  ){
+        noStroke();
+        fill(255, 0, 0);
+        ellipse(250,200,130,130);
+        fill(0, 250, 0);
+        ellipse(100,200,130,130);
+    }
+};
+
+var draw = function() {
+    background(0, 0, 0);
+    
+    fill(255, 255, 255);
+    textFont(createFont("Tahoma"), 18);
+    text("click the buttons in this order\ngreen red red green", 47, 100);
+    
+    text("© MHS BYTE CLUB", 37, 377);
+    
+    drawButtons();
+};
+
+var mousePressed = function() {
+    var mouseColor = get(mouseX,mouseY);
+    
+    if(buttonRound === 1 || buttonRound === 4) {
+        if(mouseColor === RED){
+            background(255, 0, 0);
+            text("fail",100,100);
+            noLoop();
+        }
+        
+        if(mouseColor === GREEN){
+            buttonRound++;
+        }
+    } else if(buttonRound === 2 || buttonRound === 3) {
+        if(mouseColor === RED){
+            buttonRound++;
+        }
+        if(mouseColor === GREEN){
+            background(255, 0, 0);
+            text("fail",100,100);
+            noLoop();
+        }
+    }
+};
    </sript>
+ <script1>
+   var birthDay = prompt(Day?)
+   var birthMonth = prompt(Month?)
+   var birthYear = prompt(Year?)
+   
+   
+ </script1>
   </body>
 </html>
